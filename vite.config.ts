@@ -5,6 +5,10 @@ export default defineConfig({
   base: './',
   build: {
     rollupOptions: {
+      input: {
+        app1: path.resolve(__dirname, 'index1.html'),
+        app2: path.resolve(__dirname, 'index2.html'),
+      },
       output: {
         codeSplitting: {
           groups: [{ name: 'phaser', test: /node_modules[\\/]+phaser/ }],
