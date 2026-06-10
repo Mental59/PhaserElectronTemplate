@@ -1,5 +1,6 @@
-import { GAME_HEIGHT, GAME_WIDTH } from '@/config';
-import { Game as MainGame } from './scenes/game';
+import { GAME_HEIGHT, GAME_WIDTH } from '@src/config';
+import { BootScene } from '@src/game/scenes/boot';
+import { GameScene } from '@src/game/scenes/game';
 import { AUTO, Game, Scale, Types } from 'phaser';
 
 const config: Types.Core.GameConfig = {
@@ -11,7 +12,7 @@ const config: Types.Core.GameConfig = {
     mode: Scale.FIT,
     autoCenter: Scale.CENTER_BOTH,
   },
-  scene: [MainGame],
+  scene: [BootScene, GameScene],
 };
 
 const startGame = (parent: string) => {
