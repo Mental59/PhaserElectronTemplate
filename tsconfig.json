@@ -16,14 +16,12 @@
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "@/*": ["./src/*"],
-      "@scenes/*": ["./game/scenes/*"],
-      "@managers/*": ["./src/managers/*"]
+      "@src/*": ["./src/*"],
+      "@electron/*": ["./electron/*"]
     }
   },
-  "include": ["src", "electron"]
+  "include": ["src/**/*", "electron/**/*"]
 }

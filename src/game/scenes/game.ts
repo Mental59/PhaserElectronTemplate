@@ -1,9 +1,9 @@
-import { GAME_HEIGHT, GAME_WIDTH } from '@/config';
-import { Scene } from 'phaser';
+import { GAME_HEIGHT, GAME_WIDTH } from '@src/config';
+import { BaseScene } from '@src/game/scenes/base';
 
-export class Game extends Scene {
+export class GameScene extends BaseScene {
   public constructor() {
-    super('Game');
+    super('game');
   }
 
   public preload() {
@@ -14,8 +14,15 @@ export class Game extends Scene {
   }
 
   public create() {
-    this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'background');
-    this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'logo').setDepth(100);
+    this.add
+      .image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'background')
+      .setInteractive();
+
+    const logoImage = this.add
+      .image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'logo')
+      .setDepth(100)
+      .setInteractive();
+
     this.add
       .text(
         GAME_WIDTH / 2,
@@ -32,5 +39,14 @@ export class Game extends Scene {
       )
       .setOrigin(0.5)
       .setDepth(100);
+
+    logoImage.on('pointerdown', () => {
+      const state = this.getGameState();
+      window.gameAPI.updateState({
+        x: state.x + 1,
+        y: state.y + 2,
+        z: state.z + 3,
+      });
+    });
   }
 }
