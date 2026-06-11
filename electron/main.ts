@@ -86,7 +86,7 @@ async function createWindow({
   devAppUrl,
   indexFilePath,
 }: {
-  windowOptions: Electron.BrowserViewConstructorOptions;
+  windowOptions: Electron.BrowserWindowConstructorOptions;
   devAppUrl: string;
   indexFilePath: string;
 }) {
